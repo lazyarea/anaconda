@@ -35,7 +35,6 @@
     chown vagrant:vagrant /home/sites/${FQDN}/
 
     cat > /etc/httpd/conf.d/${FQDN}.conf << "EOF.httpdconf"
-    NameVirtualHost *:80
     <VirtualHost *:80>
     TABServerAdmin webmaster@DOMAIN
     TABServerName FQDN

@@ -45,7 +45,6 @@
     TABTAB<Directory /home/sites/FQDN/html/>
     TABTABOptions ExecCGI Includes FollowSymlinks
     TABTABAllowOverride Options FileInfo AuthConfig Limit
-    TABTABOrder allow,deny
     TABTABRequire all granted
     TAB</Directory>
     </VirtualHost>

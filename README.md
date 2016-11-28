@@ -47,7 +47,7 @@
     TABTABOptions ExecCGI Includes FollowSymlinks
     TABTABAllowOverride Options FileInfo AuthConfig Limit
     TABTABOrder allow,deny
-    TABTABAllow from all
+    TABTABRequire all granted
     TAB</Directory>
     </VirtualHost>
     EOF.httpdconf

@@ -59,3 +59,23 @@
     systemctl status httpd
     systemctl restart httpd
 
+# before mkiso
+    mount -t iso9660 -p loop CentOS-7-x86_64-Minimal-1511.iso ./isofs/
+    cd /mounted/path/to/base/isolinux/
+    curl -O https://lazyarea.github.io/anaconda/centos.cfg
+    mv centos.cfg ks.cfg
+# edit isolinux.cfg
+    - #default vesamenu.c32
+    + default setup
+    ...
+    label check 
+    -     menu default
+    ...
+    + label check
+    +      menu label Test this ^media & install CentOS 7
+    +      kernel vmlinuz
+    +      append initrd=initrd.img inst.stage2=hd:LABEL=CentOS\x207\x20x86_64 rd.live.check quiet
+
+# mkiso
+    mkisofs -v -r -J -o ../CentOS-7-x86_64-Minimal-1511-01.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table .
+
